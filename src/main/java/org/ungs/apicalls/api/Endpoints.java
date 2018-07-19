@@ -14,18 +14,30 @@ public class Endpoints {
 	}
 	
 	private URL clientsEndpoint;
+	private URL ordersEndpoint;
+	private URL authEndpoint;
 	private String prefix;
 	
 	private Endpoints() {
 		prefix = "http://192.160.0.1";
 		try {
 			clientsEndpoint = new URL(prefix + "/api/clients");
+			ordersEndpoint = new URL(prefix + "/api/orders");
+			authEndpoint = new URL(prefix + "/api/auth");
 		} catch (MalformedURLException ingnored) {
 		}
 	}
 	
 	public URL clientsEndpoint() {
 		return clientsEndpoint;
+	}
+	
+	public URL ordersEndpoint() {
+		return ordersEndpoint;
+	}
+
+	public URL authEndpoint() {
+		return authEndpoint;
 	}
 	
 }

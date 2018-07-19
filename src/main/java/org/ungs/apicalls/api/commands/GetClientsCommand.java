@@ -1,15 +1,22 @@
 package org.ungs.apicalls.api.commands;
 
+import org.ungs.apicalls.api.Endpoints;
+import org.ungs.apicalls.api.Session;
 import org.ungs.apicalls.http.HttpResponse;
 
-public class GetClientsCommand implements Command{
+public class GetClientsCommand extends SessionCommand{
+	
+	public GetClientsCommand() {
+		super();
+	}
 
 	@Override
 	public HttpResponse execute() {
 		
-		return null;
+		client.setToken(token);
+		return client.get(Endpoints.getInstance().clientsEndpoint());
+		
 	}
-
 	
 	
 	
